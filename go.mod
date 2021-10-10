@@ -1,4 +1,4 @@
-module cacli-wrapper-go
+module github.com/armosec/cacli-wrapper-go
 
 go 1.16
 
