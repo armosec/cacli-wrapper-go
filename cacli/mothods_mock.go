@@ -2,7 +2,8 @@ package cacli
 
 import (
 	"github.com/armosec/armoapi-go/armotypes"
-	"github.com/armosec/armoapi-go/opapolicy"
+	"github.com/armosec/opa-utils/reporthandling"
+
 	"github.com/armosec/utils-k8s-go/secrethandling"
 )
 
@@ -121,8 +122,8 @@ func (caclim *CacliMock) K8SPOSTURECreate(framework, cluster, namespace, wlid st
 // ================================================================================================
 
 // OPAFRAMEWORKGet cacli opa get
-func (caclim *CacliMock) OPAFRAMEWORKGet(name string) ([]opapolicy.Framework, error) {
-	return []opapolicy.Framework{}, nil
+func (caclim *CacliMock) OPAFRAMEWORKGet(name string) ([]reporthandling.Framework, error) {
+	return []reporthandling.Framework{}, nil
 }
 
 // OPAFRAMEWORKDelete cacli opa delete
@@ -136,12 +137,12 @@ func (caclim *CacliMock) OPAFRAMEWORKList() ([]string, error) {
 }
 
 // OPAFRAMEWORKCreate - cacli opa create
-func (caclim *CacliMock) OPAFRAMEWORKCreate(framework *opapolicy.Framework, fileName string) (*opapolicy.Framework, error) {
+func (caclim *CacliMock) OPAFRAMEWORKCreate(framework *reporthandling.Framework, fileName string) (*reporthandling.Framework, error) {
 	return nil, nil
 }
 
 // OPAFRAMEWORKUpdate - cacli opa update
-func (caclim *CacliMock) OPAFRAMEWORKUpdate(framework *opapolicy.Framework, fileName string) (*opapolicy.Framework, error) {
+func (caclim *CacliMock) OPAFRAMEWORKUpdate(framework *reporthandling.Framework, fileName string) (*reporthandling.Framework, error) {
 	return nil, nil
 }
 
@@ -150,8 +151,8 @@ func (caclim *CacliMock) OPAFRAMEWORKUpdate(framework *opapolicy.Framework, file
 // ================================================================================================
 
 // OPAFRAMEWORKGet cacli opa get
-func (caclim *CacliMock) OPACONTROLGet(name string) ([]opapolicy.Control, error) {
-	return []opapolicy.Control{}, nil
+func (caclim *CacliMock) OPACONTROLGet(name string) ([]reporthandling.Control, error) {
+	return []reporthandling.Control{}, nil
 }
 
 // OPAFRAMEWORKGet cacli opa get
@@ -165,12 +166,12 @@ func (caclim *CacliMock) OPACONTROLList() ([]string, error) {
 }
 
 // OPAFRAMEWORKCreate - cacli opa create
-func (caclim *CacliMock) OPACONTROLCreate(control *opapolicy.Control, fileName string) (*opapolicy.Control, error) {
+func (caclim *CacliMock) OPACONTROLCreate(control *reporthandling.Control, fileName string) (*reporthandling.Control, error) {
 	return nil, nil
 }
 
 // OPAFRAMEWORKUpdate - cacli opa update
-func (caclim *CacliMock) OPACONTROLUpdate(control *opapolicy.Control, fileName string) (*opapolicy.Control, error) {
+func (caclim *CacliMock) OPACONTROLUpdate(control *reporthandling.Control, fileName string) (*reporthandling.Control, error) {
 	return nil, nil
 }
 
@@ -179,8 +180,8 @@ func (caclim *CacliMock) OPACONTROLUpdate(control *opapolicy.Control, fileName s
 // ================================================================================================
 
 // OPAFRAMEWORKGet cacli opa get
-func (caclim *CacliMock) OPARULEGet(name string) ([]opapolicy.PolicyRule, error) {
-	return []opapolicy.PolicyRule{}, nil
+func (caclim *CacliMock) OPARULEGet(name string) ([]reporthandling.PolicyRule, error) {
+	return []reporthandling.PolicyRule{}, nil
 }
 
 // OPAFRAMEWORKGet cacli opa get
@@ -194,12 +195,12 @@ func (caclim *CacliMock) OPARULEList() ([]string, error) {
 }
 
 // OPAFRAMEWORKCreate - cacli opa create
-func (caclim *CacliMock) OPARULECreate(rule *opapolicy.PolicyRule, fileName string) (*opapolicy.PolicyRule, error) {
+func (caclim *CacliMock) OPARULECreate(rule *reporthandling.PolicyRule, fileName string) (*reporthandling.PolicyRule, error) {
 	return nil, nil
 }
 
 // OPAFRAMEWORKUpdate - cacli opa update
-func (caclim *CacliMock) OPARULEUpdate(rule *opapolicy.PolicyRule, fileName string) (*opapolicy.PolicyRule, error) {
+func (caclim *CacliMock) OPARULEUpdate(rule *reporthandling.PolicyRule, fileName string) (*reporthandling.PolicyRule, error) {
 	return nil, nil
 }
 

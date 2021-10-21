@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/armosec/armoapi-go/armotypes"
-	"github.com/armosec/armoapi-go/opapolicy"
+	"github.com/armosec/opa-utils/reporthandling"
 	"github.com/armosec/utils-k8s-go/secrethandling"
 	"github.com/golang/glog"
 )
@@ -464,9 +464,9 @@ func (cacli *Cacli) RunPostureScan(framework, cluster string) error {
 // ================================================================================================
 
 // OPAFRAMEWORKGet cacli opa get
-func (cacli *Cacli) OPAFRAMEWORKGet(name string, public bool) ([]opapolicy.Framework, error) {
+func (cacli *Cacli) OPAFRAMEWORKGet(name string, public bool) ([]reporthandling.Framework, error) {
 	args := []string{}
-	opaList := []opapolicy.Framework{}
+	opaList := []reporthandling.Framework{}
 	args = append(args, "opa")
 	args = append(args, "framework")
 	args = append(args, "get")
@@ -484,7 +484,7 @@ func (cacli *Cacli) OPAFRAMEWORKGet(name string, public bool) ([]opapolicy.Frame
 		if name == "" {
 			err = json.Unmarshal(opaReceive, &opaList)
 		} else {
-			opaSingle := opapolicy.Framework{}
+			opaSingle := reporthandling.Framework{}
 			err = json.Unmarshal(opaReceive, &opaSingle)
 			opaList = append(opaList, opaSingle)
 		}
@@ -510,7 +510,7 @@ func (cacli *Cacli) OPAFRAMEWORKList(public bool) ([]string, error) {
 }
 
 // OPAFRAMEWORKCreate - cacli opa create
-func (cacli *Cacli) OPAFRAMEWORKCreate(framework *opapolicy.Framework, fileName string) (*opapolicy.Framework, error) {
+func (cacli *Cacli) OPAFRAMEWORKCreate(framework *reporthandling.Framework, fileName string) (*reporthandling.Framework, error) {
 	if fileName == "" {
 		var err error
 		if fileName, err = ConvertObjectTOFile(*framework); err != nil {
@@ -531,7 +531,7 @@ func (cacli *Cacli) OPAFRAMEWORKCreate(framework *opapolicy.Framework, fileName 
 }
 
 // OPAFRAMEWORKUpdate - cacli opa update
-func (cacli *Cacli) OPAFRAMEWORKUpdate(framework *opapolicy.Framework, fileName string) (*opapolicy.Framework, error) {
+func (cacli *Cacli) OPAFRAMEWORKUpdate(framework *reporthandling.Framework, fileName string) (*reporthandling.Framework, error) {
 	if fileName == "" {
 		var err error
 		if fileName, err = ConvertObjectTOFile(*framework); err != nil {
@@ -568,9 +568,9 @@ func (cacli *Cacli) OPAFRAMEWORKDelete(name string) error {
 // ================================================================================================
 
 // OPACONTROLGet cacli opa get
-func (cacli *Cacli) OPACONTROLGet(name string) ([]opapolicy.Control, error) {
+func (cacli *Cacli) OPACONTROLGet(name string) ([]reporthandling.Control, error) {
 	args := []string{}
-	opaList := []opapolicy.Control{}
+	opaList := []reporthandling.Control{}
 	args = append(args, "opa")
 	args = append(args, "control")
 	args = append(args, "get")
@@ -585,7 +585,7 @@ func (cacli *Cacli) OPACONTROLGet(name string) ([]opapolicy.Control, error) {
 		if name == "" {
 			err = json.Unmarshal(opaReceive, &opaList)
 		} else {
-			opaSingle := opapolicy.Control{}
+			opaSingle := reporthandling.Control{}
 			err = json.Unmarshal(opaReceive, &opaSingle)
 			opaList = append(opaList, opaSingle)
 		}
@@ -608,7 +608,7 @@ func (cacli *Cacli) OPACONTROLList() ([]string, error) {
 }
 
 // OPAFRAMEWORKCreate - cacli opa create
-func (cacli *Cacli) OPACONTROLCreate(control *opapolicy.Control, fileName string) (*opapolicy.Control, error) {
+func (cacli *Cacli) OPACONTROLCreate(control *reporthandling.Control, fileName string) (*reporthandling.Control, error) {
 	if fileName == "" {
 		var err error
 		if fileName, err = ConvertObjectTOFile(*control); err != nil {
@@ -629,7 +629,7 @@ func (cacli *Cacli) OPACONTROLCreate(control *opapolicy.Control, fileName string
 }
 
 // OPAFRAMEWORKUpdate - cacli opa update
-func (cacli *Cacli) OPACONTROLUpdate(control *opapolicy.Control, fileName string) (*opapolicy.Control, error) {
+func (cacli *Cacli) OPACONTROLUpdate(control *reporthandling.Control, fileName string) (*reporthandling.Control, error) {
 	if fileName == "" {
 		var err error
 		if fileName, err = ConvertObjectTOFile(*control); err != nil {
@@ -666,9 +666,9 @@ func (cacli *Cacli) OPACONTROLDelete(name string) error {
 // ================================================================================================
 
 // OPARULEGet cacli opa get
-func (cacli *Cacli) OPARULEGet(name string) ([]opapolicy.PolicyRule, error) {
+func (cacli *Cacli) OPARULEGet(name string) ([]reporthandling.PolicyRule, error) {
 	args := []string{}
-	opaList := []opapolicy.PolicyRule{}
+	opaList := []reporthandling.PolicyRule{}
 	args = append(args, "opa")
 	args = append(args, "rule")
 	args = append(args, "get")
@@ -681,7 +681,7 @@ func (cacli *Cacli) OPARULEGet(name string) ([]opapolicy.PolicyRule, error) {
 		if name == "" {
 			err = json.Unmarshal(opaReceive, &opaList)
 		} else {
-			opaSingle := opapolicy.PolicyRule{}
+			opaSingle := reporthandling.PolicyRule{}
 			err = json.Unmarshal(opaReceive, &opaSingle)
 			opaList = append(opaList, opaSingle)
 		}
@@ -704,7 +704,7 @@ func (cacli *Cacli) OPARULEList() ([]string, error) {
 }
 
 // OPAFRAMEWORKCreate - cacli opa create
-func (cacli *Cacli) OPARULECreate(rule *opapolicy.PolicyRule, fileName string) (*opapolicy.PolicyRule, error) {
+func (cacli *Cacli) OPARULECreate(rule *reporthandling.PolicyRule, fileName string) (*reporthandling.PolicyRule, error) {
 	if fileName == "" {
 		var err error
 		if fileName, err = ConvertObjectTOFile(*rule); err != nil {
@@ -725,7 +725,7 @@ func (cacli *Cacli) OPARULECreate(rule *opapolicy.PolicyRule, fileName string) (
 }
 
 // OPAFRAMEWORKUpdate - cacli opa update
-func (cacli *Cacli) OPARULEUpdate(rule *opapolicy.PolicyRule, fileName string) (*opapolicy.PolicyRule, error) {
+func (cacli *Cacli) OPARULEUpdate(rule *reporthandling.PolicyRule, fileName string) (*reporthandling.PolicyRule, error) {
 	if fileName == "" {
 		var err error
 		if fileName, err = ConvertObjectTOFile(*rule); err != nil {

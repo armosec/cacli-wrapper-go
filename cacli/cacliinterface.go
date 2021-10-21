@@ -1,9 +1,8 @@
 package cacli
 
 import (
-	// wlidpkg "github.com/armosec/utils-k8s-go/wlid"
 	"github.com/armosec/armoapi-go/armotypes"
-	"github.com/armosec/armoapi-go/opapolicy"
+	"github.com/armosec/opa-utils/reporthandling"
 	"github.com/armosec/utils-k8s-go/secrethandling"
 )
 
@@ -57,23 +56,23 @@ type ICacli interface {
 	ClusterConfigGet(name, cluster, scope string) (armotypes.CustomerConfig, error)
 
 	// OPA FRAMEWORK
-	OPAFRAMEWORKCreate(*opapolicy.Framework, string) (*opapolicy.Framework, error)
-	OPAFRAMEWORKUpdate(*opapolicy.Framework, string) (*opapolicy.Framework, error)
-	OPAFRAMEWORKGet(string, bool) ([]opapolicy.Framework, error)
+	OPAFRAMEWORKCreate(*reporthandling.Framework, string) (*reporthandling.Framework, error)
+	OPAFRAMEWORKUpdate(*reporthandling.Framework, string) (*reporthandling.Framework, error)
+	OPAFRAMEWORKGet(string, bool) ([]reporthandling.Framework, error)
 	OPAFRAMEWORKList(bool) ([]string, error)
 	OPAFRAMEWORKDelete(string) error
 
 	// OPA CONTROL
-	OPACONTROLCreate(*opapolicy.Control, string) (*opapolicy.Control, error)
-	OPACONTROLUpdate(*opapolicy.Control, string) (*opapolicy.Control, error)
-	OPACONTROLGet(string) ([]opapolicy.Control, error)
+	OPACONTROLCreate(*reporthandling.Control, string) (*reporthandling.Control, error)
+	OPACONTROLUpdate(*reporthandling.Control, string) (*reporthandling.Control, error)
+	OPACONTROLGet(string) ([]reporthandling.Control, error)
 	OPACONTROLList() ([]string, error)
 	OPACONTROLDelete(string) error
 
 	// OPA RULE
-	OPARULECreate(*opapolicy.PolicyRule, string) (*opapolicy.PolicyRule, error)
-	OPARULEUpdate(*opapolicy.PolicyRule, string) (*opapolicy.PolicyRule, error)
-	OPARULEGet(string) ([]opapolicy.PolicyRule, error)
+	OPARULECreate(*reporthandling.PolicyRule, string) (*reporthandling.PolicyRule, error)
+	OPARULEUpdate(*reporthandling.PolicyRule, string) (*reporthandling.PolicyRule, error)
+	OPARULEGet(string) ([]reporthandling.PolicyRule, error)
 	OPARULEList() ([]string, error)
 	OPARULEDelete(string) error
 
