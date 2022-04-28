@@ -99,7 +99,7 @@ type Key struct {
 	Key                 string            `json:"key"`
 	Algorithm           string            `json:"algorithm"`
 	Description         string            `json:"description"`
-	DliveryFlags        string            `json:"delivery_flags"`
+	DeliveryFlags       string            `json:"delivery_flags"`
 	BackupInDB          bool              `json:"backup_in_ca_db"`
 	BusinessRulePackage interface{}       `json:"business_rule_package"`
 	Attributes          map[string]string `json:"attributes"`
@@ -139,19 +139,19 @@ type SecretMetadata struct {
 
 // SigningProfile signingProfile configuration
 type SigningProfile struct {
-	Name           string                  `json:"name"`
-	GUID           string                  `json:"guid"`
-	Platform       int64                   `json:"platform"`
-	Architecture   int64                   `json:"architecture"`
-	CreationTime   string                  `json:"creation_time"`
-	LastEditTime   string                  `json:"last_edit_time"`
-	Attributes     SignigProfileAttributes `json:"attributes"`
-	ExecutableList []ExecutablesList       `json:"executablesList"` // Use structs from catypes
-	FullPathMap    map[string]bool         `json:"-"`
+	Name           string                   `json:"name"`
+	GUID           string                   `json:"guid"`
+	Platform       int64                    `json:"platform"`
+	Architecture   int64                    `json:"architecture"`
+	CreationTime   string                   `json:"creation_time"`
+	LastEditTime   string                   `json:"last_edit_time"`
+	Attributes     SigningProfileAttributes `json:"attributes"`
+	ExecutableList []ExecutablesList        `json:"executablesList"` // Use struct from catypes
+	FullPathMap    map[string]bool          `json:"-"`
 }
 
-// SignigProfileAttributes -
-type SignigProfileAttributes struct {
+// SigningProfileAttributes -
+type SigningProfileAttributes struct {
 	IsStockProfile    bool   `json:"isStockProfile,omitempty"`
 	ContainerName     string `json:"containerName,omitempty"`
 	DockerImageTag    string `json:"dockerImageTag,omitempty"`
